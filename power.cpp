@@ -1,5 +1,5 @@
 /**
-*¸¿¿¿¿base¿exponent¿¿¿
+*ÇóbaseµÄexponent´ÎÃÝ
 */
 #include <iostream>
 #include <cmath>
@@ -12,7 +12,7 @@ int main()
     return 0;
 }
 /**
-*¿¿¿¿
+*µÝ¹é°æ±¾
 */
 double Power(double base, int exponent) {
     if(exponent==0)return 1;
@@ -22,7 +22,7 @@ double Power(double base, int exponent) {
     return Power(base,temp)*Power(base,exponent-temp);
     }
 /**
-*¿¿¿¿
+*µü´ú°æ±¾
 */
 double Power1(double base, int exponent) {
     int exp=abs(exponent);
