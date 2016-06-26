@@ -2,7 +2,7 @@
 #include <cstdlib>
 #include <iostream>
 #define N 100
-#define M 3           //±íÊ¾ÓĞ¶àÉÙÖÖÅÅĞò·½·¨£»
+#define M 3           //è¡¨ç¤ºæœ‰å¤šå°‘ç§æ’åºæ–¹æ³•ï¼›
 using namespace std;
 
 void swap(int &a,int &b){
@@ -35,7 +35,7 @@ int main()
 		cout<<a[i]<<" ";
 	}
 	cout<<endl;
-	cout<<"¿ìËÙÅÅĞò£º"<<endl;
+	cout<<"å¿«é€Ÿæ’åºï¼š"<<endl;
     qSort(a,0,N);
 	
 	for(int i=0;i<N;i++){
@@ -47,20 +47,20 @@ int main()
 }
 
 /**
-*Ñ¡ÔñÒ»ÖÖÅÅĞò
+*é€‰æ‹©ä¸€ç§æ’åº
 */
 void Sort(int a[N],int left,int right){
 	switch(rand()%M + 1){
 		case 1:
-		    cout<<"Ã°ÅİÅÅĞò£º"<<endl;
+		    cout<<"å†’æ³¡æ’åºï¼š"<<endl;
 		    bubbleSort(a);
 			break;
 		case 2:
-		    cout<<"¹é²¢ÅÅĞò£º"<<endl;
+		    cout<<"å½’å¹¶æ’åºï¼š"<<endl;
 			mergeSort(a,left,right);
 			break;
 		case 3:
-		    cout<<"¿ìËÙÅÅĞò£º"<<endl;
+		    cout<<"å¿«é€Ÿæ’åºï¼š"<<endl;
 			qSort(a,left,right);
 			break;
 		default:
@@ -69,7 +69,7 @@ void Sort(int a[N],int left,int right){
 }
 
 /**
-*²úÉú100¸ö1000ÒÔÄÚµÄËæ»úÊı
+*äº§ç”Ÿ100ä¸ª1000ä»¥å†…çš„éšæœºæ•°
 */
 void Random(int a[N]){
     srand((int)time(NULL));
@@ -79,7 +79,7 @@ void Random(int a[N]){
 }
 
 /**
-*Ã°ÅİÅÅĞò£»
+*å†’æ³¡æ’åºï¼›
 */
 void bubbleSort(int a[N]){
 	for(int i=0;i<N-1;i++){
@@ -90,7 +90,7 @@ void bubbleSort(int a[N]){
 }
 
 /**
-*¹é²¢ÅÅĞò£»
+*å½’å¹¶æ’åºï¼›
 */
 void merge(int a[N],int left,int mid,int right){
 	int *A = a+left;
@@ -114,7 +114,7 @@ void mergeSort(int a[N],int left,int right){
 }
 
 /**
-*¿ìËÙÅÅĞò(ÓĞÎÊÌâ£¬´ı½â¾ö......)
+*å¿«é€Ÿæ’åº(æœ‰é—®é¢˜ï¼Œå¾…è§£å†³......)
 */
 void qSort(int a[N],int left,int right){
 	if(right-left<2)return;
@@ -123,14 +123,14 @@ void qSort(int a[N],int left,int right){
 	qSort(a,mid+1,right);
 }
 int partition(int a[N],int left,int right){
-	//swap(a[left],a[left+(rand()%(right-left)+1)]);//ÎªºÎ¸Ä³Éa[left+rand%(right-left+1)]È´²»ĞĞ£¿
+	//swap(a[left],a[left+(rand()%(right-left)+1)]);//ä¸ºä½•æ”¹æˆa[left+rand%(right-left+1)]å´ä¸è¡Œï¼Ÿ
 	swap1(a[left],a[left+rand()%(right-left+1)]);    
 	                                               /**
-												   *ÒÑ½â¾ö£¬ºÍ swap º¯ÊıÓĞ¹Ø£¬»»³É swap1 ¾ÍÕı³£ÁË£»
-												   *ÒòÎªµ± rand()%(right-left+1)=0 Ê±
-												   *Ö´ĞĞswap(a[left],a[left])»áÊ¹½á¹û±ä³É 0 £»
-                                                   *ËùÒÔµ±Êı×éÄÚÔªËØÒªÖ´ĞĞ½»»»²Ù×÷Ê±×îºÃÓÃswap1(&a,&b);												   
-												   */
+							*å·²è§£å†³ï¼Œå’Œ swap å‡½æ•°æœ‰å…³ï¼Œæ¢æˆ swap1 å°±æ­£å¸¸äº†ï¼›
+							*å› ä¸ºå½“ rand()%(right-left+1)=0 æ—¶
+							*æ‰§è¡Œswap(a[left],a[left])ä¼šä½¿ç»“æœå˜æˆ 0 ï¼›
+                                                        *æ‰€ä»¥å½“æ•°ç»„å†…å…ƒç´ è¦æ‰§è¡Œäº¤æ¢æ“ä½œæ—¶æœ€å¥½ç”¨swap1(&a,&b);												   
+							*/
 	int pivot=a[left];
 	while(left<right){
 	    while((left<right) && (pivot<=a[right]))right--;
@@ -142,7 +142,7 @@ int partition(int a[N],int left,int right){
 	return left;
 }
 /**
-*¶ş·Ö²éÕÒ£»
+*äºŒåˆ†æŸ¥æ‰¾ï¼›
 */
 int binarySearch(int a[N],int element,int left,int right){//0 <= left <= right < N;
 	while(1<right-left){
